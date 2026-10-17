@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Research website presenting an explainable deep learning framework for tomato leaf disease classification using DenseNet121 and Grad-CAM.">
+  <meta name="theme-color" content="#143c2d">
+  <title>TomatoVision | Explainable Tomato Leaf Disease Research</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="TomatoVision home">
+      <span class="brand-mark" aria-hidden="true">✳</span>
+      <span><strong>TomatoVision</strong><small>Research Portfolio</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="nav" id="mainNav" aria-label="Main navigation">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#disease" class="nav-link">Tomato Disease</a>
+      <a href="#methodology" class="nav-link">Methodology</a>
+      <a href="#results" class="nav-link">Results &amp; Analysis</a>
+      <a href="#about" class="nav-link">About Project</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HOME -->
+    <section class="page active" id="home" aria-labelledby="home-title">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> COMPUTER VISION · EXPLAINABLE AI</div>
+          <h1 id="home-title">Using Deep Learning in an Explainable Way to <em>Classify Diseases in Tomato Leaves</em></h1>
+          <p class="hero-subtitle">A transfer-learning framework with DenseNet121 and Grad-CAM visual explanations.</p>
+          <p class="hero-description">Research into accurate tomato leaf disease classification, cross-dataset generalization, and visual interpretation of model decisions.</p>
+          <div class="hero-actions">
+            <a class="button button-light" href="#results">Explore Results <span aria-hidden="true">↗</span></a>
+            <a class="button button-outline" href="#methodology">View Methodology</a>
+          </div>
+          <div class="hero-meta"><span>Thesis · August 2026</span><span class="meta-separator">•</span><span>PUST, Bangladesh</span></div>
+        </div>
+        <div class="hero-art" aria-label="Illustration of a tomato leaf">
+          <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+          <div class="art-label label-top"><span class="status-dot"></span> Explainable AI</div>
+          <svg class="leaf-art" viewBox="0 0 440 440" role="img" aria-label="Stylized green tomato leaf illustration">
+            <defs>
+              <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b9e28b"/><stop offset=".55" stop-color="#4f9d63"/><stop offset="1" stop-color="#1b654a"/></linearGradient>
+              <linearGradient id="veinGrad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e7f5c8"/><stop offset="1" stop-color="#9fce8b"/></linearGradient>
+              <filter id="leafShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="14" flood-color="#062d20" flood-opacity=".3"/></filter>
+            </defs>
+            <g transform="translate(220 220) rotate(-17)" filter="url(#leafShadow)">
+              <path d="M0 155 C-18 102 -44 64 -108 50 C-74 33 -100 -4 -153 -10 C-105 -32 -103 -65 -134 -91 C-83 -86 -50 -109 -48 -157 C-19 -122 8 -115 28 -151 C42 -106 69 -91 117 -103 C90 -69 102 -37 150 -25 C105 -5 96 24 117 57 C70 49 43 72 33 111 C18 91 7 118 0 155Z" fill="url(#leafGrad)" stroke="#c8e7a6" stroke-opacity=".55" stroke-width="2"/>
+              <path d="M0 151 C-3 94 -5 22 2 -139" fill="none" stroke="url(#veinGrad)" stroke-width="4" stroke-linecap="round"/>
+              <g fill="none" stroke="#c9e7a6" stroke-width="2.2" stroke-linecap="round" opacity=".88">
+                <path d="M0 103 L-65 55 L-99 53"/><path d="M-2 76 L-97 4 L-133 -5"/>
+                <path d="M-1 48 L-78 -38 L-112 -47"/><path d="M-1 18 L-53 -88 L-78 -105"/>
+                <path d="M2 91 L57 49 L91 55"/><path d="M1 60 L84 7 L126 -14"/>
+                <path d="M2 31 L62 -56 L107 -74"/><path d="M2 2 L28 -99 L35 -125"/>
+              </g>
+              <path d="M-10 145 C-45 101 -66 89 -90 86 M4 119 C34 92 48 83 72 82" fill="none" stroke="#1b654a" stroke-width="4" opacity=".45"/>
+            </g>
+            <g transform="translate(320 308)">
+              <circle r="44" fill="#dff0c8" opacity=".12"/><circle r="28" fill="#a6d47b" opacity=".18"/><path d="M-8 -20 Q-2 -31 10 -20 Q22 -13 16 1 Q10 16 0 20 Q-15 9 -16 -4 Q-17 -14 -8 -20Z" fill="#91c879" opacity=".85"/>
+            </g>
+          </svg>
+          <div class="art-label label-bottom"><span class="mini-bars"><i></i><i></i><i></i></span> DenseNet121 + Grad-CAM</div>
+          <div class="floating-note"><strong>10 classes</strong><span>9 diseases + healthy</span></div>
+        </div>
+      </div>
+
+      <div class="section-wrap">
+        <div class="stats-grid">
+          <article class="stat-card"><span class="stat-kicker">PLANTVILLAGE TEST</span><strong>99.79<small>%</small></strong><span>Classification accuracy</span><div class="stat-foot"><span class="tiny-dot green"></span> DenseNet121 · proposed model</div></article>
+          <article class="stat-card"><span class="stat-kicker">CROSS-DATASET TEST</span><strong>85.04<small>%</small></strong><span>PlantDoc accuracy</span><div class="stat-foot"><span class="tiny-dot amber"></span> Independent field images</div></article>
+          <article class="stat-card"><span class="stat-kicker">DATASET</span><strong>16,478</strong><span>PlantVillage images</span><div class="stat-foot"><span class="tiny-dot green"></span> 10 tomato leaf categories</div></article>
+          <article class="stat-card"><span class="stat-kicker">EXPLAINABILITY</span><strong>Grad-CAM</strong><span>Visual model interpretation</span><div class="stat-foot"><span class="tiny-dot green"></span> Highlighting influential regions</div></article>
+        </div>
+
+        <div class="section-heading split-heading">
+          <div><span class="eyebrow dark-eyebrow">THE RESEARCH</span><h2>Accuracy matters.<br><em>Understanding matters too.</em></h2></div>
+          <p>Deep learning can classify leaf symptoms, but a high score alone does not explain why a model made a decision. This study compares five pretrained CNNs, evaluates performance beyond a controlled dataset, and uses Grad-CAM to visualize influential image regions.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card"><span class="feature-icon">⌁</span><span class="feature-number">01 / COMPARE</span><h3>Transfer learning</h3><p>VGG16, AlexNet, ResNet50, EfficientNet-B0, and DenseNet121 are evaluated under the study's experimental setup.</p><a href="#methodology">Explore the models <span>→</span></a></article>
+          <article class="feature-card"><span class="feature-icon">◉</span><span class="feature-number">02 / VALIDATE</span><h3>Field generalization</h3><p>PlantDoc is used as an independent cross-dataset evaluation to examine performance under more varied image conditions.</p><a href="#results">Review validation <span>→</span></a></article>
+          <article class="feature-card"><span class="feature-icon">✳</span><span class="feature-number">03 / EXPLAIN</span><h3>Visual evidence</h3><p>Grad-CAM heatmaps help inspect which image regions influenced the predicted disease category.</p><a href="#methodology">Understand Grad-CAM <span>→</span></a></article>
+        </div>
+        <div class="callout"><div class="callout-mark">i</div><div><strong>Research note</strong><p>The PlantVillage result is measured on a controlled test set. PlantDoc cross-dataset accuracy is lower, highlighting the challenge of applying models to field images. These results are research findings, not a guarantee of diagnosis in every real-world setting.</p></div><a href="#results" aria-label="Read results">↗</a></div>
+      </div>
+    </section>
+
+    <!-- DISEASE -->
+    <section class="page" id="disease" aria-labelledby="disease-title">
+      <div class="page-hero compact-hero">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> DATASET LABELS</div>
+        <h1 id="disease-title">Tomato disease <em>categories</em></h1>
+        <p>The research classifies tomato leaf images into nine disease categories and one healthy category.</p>
+        <div class="hero-meta"><span>10 classes</span><span class="meta-separator">•</span><span>PlantVillage dataset</span></div>
+      </div>
+      <div class="section-wrap">
+        <div class="section-heading disease-intro"><div><span class="eyebrow dark-eyebrow">CLASS EXPLORER</span><h2>Ten categories.<br><em>One classification task.</em></h2></div><p>Use the search field to find a category. The cards describe dataset labels and general visual context; they are not a substitute for expert plant-pathology diagnosis.</p></div>
+        <div class="filter-row"><label class="search-box"><span>⌕</span><input id="diseaseSearch" type="search" placeholder="Search disease categories..." aria-label="Search disease categories"></label><div class="filter-pills" role="group" aria-label="Filter disease categories"><button class="filter-btn active" data-filter="all">All classes <span>10</span></button><button class="filter-btn" data-filter="disease">Diseases <span>9</span></button><button class="filter-btn" data-filter="healthy">Healthy <span>1</span></button></div></div>
+        <div class="disease-grid" id="diseaseGrid">
+          <article class="disease-card" data-kind="disease" data-name="bacterial spot"><div class="disease-visual visual-bacterial"><span class="leaf-shape"></span><span class="disease-chip">BACTERIAL</span></div><div class="disease-body"><div class="disease-number">CLASS 01</div><h3>Bacterial spot</h3><p>Dataset category associated with dark, spot-like lesions on leaf tissue.</p></div></article>
+          <article class="disease-card" data-kind="disease" data-name="early blight"><div class="disease-visual visual-early"><span class="leaf-shape"></span><span class="disease-chip">FUNGAL</span></div><div class="disease-body"><div class="disease-number">CLASS 02</div><h3>Early blight</h3><p>Often associated with brown lesions and concentric ring patterns.</p></div></article>
+          <article class="disease-card" data-kind="disease" data-name="late blight"><div class="disease-visual visual-late"><span class="leaf-shape"></span><span class="disease-chip">FUNGAL-LIKE</span></div><div class="disease-body"><div class="disease-number">CLASS 03</div><h3>Late blight</h3><p>May show irregular, darkened areas; appearance varies with conditions.</p></div></article>
+          <article class="disease-card" data-kind="disease" data-name="leaf mold"><div class="disease-visual visual-mold"><span class="leaf-shape"></span><span class="disease-chip">FUNGAL</span></div><div class="disease-body"><div class="disease-number">CLASS 04</div><h3>Leaf Mold</h3><p>A leaf disease category included in the ten-class image classification task.</p></div></article>
+          <article class="disease-card" data-kind="disease" data-name="septoria leaf spot"><div class="disease-visual visual-septoria"><span class="leaf-shape"></span><span class="disease-chip">FUNGAL</span></div><div class="disease-body"><div class="disease-number">CLASS 05</div><h3>Septoria leaf spot</h3><p>Commonly described by multiple small, circular spots on leaves.</p></div></article>
+          <article class="disease-card" data-kind="disease" data-name="spider mites two spotted"><div class="disease-visual visual-mites"><span class="leaf-shape"></span><span class="disease-chip">PEST DAMAGE</span></div><div class="disease-body"><div class="disease-number">CLASS 06</div><h3>Spider mites (Two-spotted)</h3><p>Damage may appear as fine stippling or speckling across leaf surfaces.</p></div></article>
+          <article class="disease-card" data-kind="disease" data-name="target spot"><div class="disease-visual visual-target"><span class="leaf-shape"></span><span class="disease-chip">FUNGAL</span></div><div class="disease-body"><div class="disease-number">CLASS 07</div><h3>Target Spot</h3><p>A category that can be confused with other diseases with similar lesions.</p></div></article>
+          <article class="disease-card" data-kind="disease" data-name="yellow leaf curl virus"><div class="disease-visual visual-yellow"><span class="leaf-shape"></span><span class="disease-chip">VIRAL</span></div><div class="disease-body"><div class="disease-number">CLASS 08</div><h3>Yellow Leaf Curl Virus</h3><p>May be associated with yellowing and curling of leaf growth.</p></div></article>
+          <article class="disease-card" data-kind="disease" data-name="mosaic virus"><div class="disease-visual visual-mosaic"><span class="leaf-shape"></span><span class="disease-chip">VIRAL</span></div><div class="disease-body"><div class="disease-number">CLASS 09</div><h3>Mosaic virus</h3><p>A category included in the study's tomato leaf disease dataset.</p></div></article>
+          <article class="disease-card" data-kind="healthy" data-name="healthy"><div class="disease-visual visual-healthy"><span class="leaf-shape"></span><span class="disease-chip">HEALTHY</span></div><div class="disease-body"><div class="disease-number">CLASS 10</div><h3>Healthy</h3><p>Leaf images without the target disease label in the dataset.</p></div></article>
+        </div>
+        <p class="empty-state" id="emptyState" hidden>No categories match your search.</p>
+        <div class="notice"><span>!</span><p><strong>Important:</strong> The category descriptions are educational context. This static website does not run the trained model and cannot diagnose an uploaded leaf image.</p></div>
+      </div>
+    </section>
+
+    <!-- METHODOLOGY -->
+    <section class="page" id="methodology" aria-labelledby="method-title">
+      <div class="page-hero compact-hero">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> RESEARCH DESIGN</div>
+        <h1 id="method-title">Methodology &amp; <em>framework</em></h1>
+        <p>A transfer-learning pipeline combining data preparation, comparative model evaluation, and visual explanation.</p>
+        <div class="hero-meta"><span>224 × 224 RGB</span><span class="meta-separator">•</span><span>70 / 15 / 15 split</span></div>
+      </div>
+      <div class="section-wrap">
+        <div class="section-heading"><span class="eyebrow dark-eyebrow">END-TO-END PIPELINE</span><h2>From leaf image to <em>explainable output.</em></h2><p class="heading-copy">The workflow below summarizes the method described in the thesis.</p></div>
+        <div class="workflow">
+          <article class="workflow-step"><div class="step-index">01</div><div class="step-icon">▧</div><h3>Dataset loading</h3><p>PlantVillage tomato leaf images across ten categories.</p><span class="step-tag">16,478 images</span></article>
+          <div class="workflow-arrow">→</div>
+          <article class="workflow-step"><div class="step-index">02</div><div class="step-icon">⌗</div><h3>Preprocessing</h3><p>Resize, normalize, augment, and convert images for model input.</p><span class="step-tag">224 × 224 RGB</span></article>
+          <div class="workflow-arrow">→</div>
+          <article class="workflow-step"><div class="step-index">03</div><div class="step-icon">⫶</div><h3>Data splitting</h3><p>Stratified train, validation, and test subsets.</p><span class="step-tag">70% / 15% / 15%</span></article>
+          <div class="workflow-arrow">→</div>
+          <article class="workflow-step"><div class="step-index">04</div><div class="step-icon">◉</div><h3>Model comparison</h3><p>Evaluate five pretrained CNN architectures using transfer learning.</p><span class="step-tag">5 CNN models</span></article>
+          <div class="workflow-arrow">→</div>
+          <article class="workflow-step final-step"><div class="step-index">05</div><div class="step-icon">✳</div><h3>Explain &amp; validate</h3><p>DenseNet121 evaluation, Grad-CAM heatmaps, and PlantDoc testing.</p><span class="step-tag">XAI + external dataset</span></article>
+        </div>
+
+        <div class="two-col content-gap">
+          <article class="panel">
+            <div class="panel-heading"><span class="panel-icon">01</span><div><span class="eyebrow dark-eyebrow">DATA PREPARATION</span><h3>Image preprocessing</h3></div></div>
+            <ul class="check-list">
+              <li><span>✓</span><div><strong>Image resizing</strong><p>All images resized to 224 × 224 pixels.</p></div></li>
+              <li><span>✓</span><div><strong>Normalization</strong><p>ImageNet channel means [0.485, 0.456, 0.406] and standard deviations [0.229, 0.224, 0.225].</p></div></li>
+              <li><span>✓</span><div><strong>Augmentation</strong><p>Random horizontal/vertical flips, rotation of ±15°, and color jittering.</p></div></li>
+              <li><span>✓</span><div><strong>Stratified split</strong><p>70% training, 15% validation, and 15% testing.</p></div></li>
+            </ul>
+          </article>
+          <article class="panel">
+            <div class="panel-heading"><span class="panel-icon">02</span><div><span class="eyebrow dark-eyebrow">MODEL CONFIGURATION</span><h3>Training setup</h3></div></div>
+            <div class="config-list">
+              <div><span>Proposed model</span><strong>DenseNet121 (pretrained)</strong></div>
+              <div><span>Optimizer</span><strong>AdamW</strong></div>
+              <div><span>Learning rate</span><strong>1 × 10⁻⁴</strong></div>
+              <div><span>Batch size</span><strong>32</strong></div>
+              <div><span>Epochs</span><strong>30</strong></div>
+              <div><span>Loss function</span><strong>Cross-Entropy</strong></div>
+              <div><span>LR scheduler</span><strong>ReduceLROnPlateau</strong></div>
+              <div><span>Weight decay</span><strong>1 × 10⁻⁴</strong></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-heading smaller-heading"><span class="eyebrow dark-eyebrow">MODEL INTERPRETABILITY</span><h2>What does the model <em>focus on?</em></h2></div>
+        <div class="gradcam-panel">
+          <div class="gradcam-visual">
+            <div class="heatmap-demo">
+              <div class="heat-leaf"></div><div class="heat-spot spot-a"></div><div class="heat-spot spot-b"></div><div class="heat-spot spot-c"></div>
+              <span class="heat-label">CONCEPTUAL HEATMAP</span>
+            </div>
+            <div class="heat-legend"><span>Lower influence</span><div class="gradient-bar"></div><span>Higher influence</span></div>
+          </div>
+          <div class="gradcam-copy"><span class="eyebrow">GRAD-CAM</span><h3>Visual explanations for CNN predictions</h3><p>Gradient-weighted Class Activation Mapping uses gradients associated with a target class to produce a localization heatmap. The heatmap is overlaid on the leaf image to inspect regions that influenced the model's prediction.</p><p class="muted">The illustration is conceptual, not an actual output generated by the trained model. Use the original Grad-CAM figure from the thesis for a publication-accurate visual.</p><div class="formula">L<sup>c</sup><sub>Grad-CAM</sub> = ReLU ( Σ α<sup>c</sup><sub>k</sub> A<sub>k</sub> )</div></div>
+        </div>
+        <div class="notice"><span>i</span><p><strong>Cross-dataset validation:</strong> the thesis trains on PlantVillage and evaluates on PlantDoc without further fine-tuning. This tests generalization under differences in backgrounds, lighting, occlusion, and camera angles.</p></div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="page" id="results" aria-labelledby="results-title">
+      <div class="page-hero compact-hero">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> EXPERIMENTAL FINDINGS</div>
+        <h1 id="results-title">Results &amp; <em>analysis</em></h1>
+        <p>Comparative evaluation on PlantVillage and cross-dataset generalization on PlantDoc.</p>
+        <div class="hero-meta"><span>5 transfer-learning models</span><span class="meta-separator">•</span><span>10 classes</span></div>
+      </div>
+      <div class="section-wrap">
+        <div class="results-summary">
+          <article><span class="summary-label">BEST PLANTVILLAGE ACCURACY</span><strong>99.79%</strong><p>DenseNet121 · proposed model</p><div class="progress-track"><span style="width:99.79%"></span></div></article>
+          <article><span class="summary-label">PLANTDOC CROSS-DATASET</span><strong>85.04%</strong><p>Same model, no further fine-tuning</p><div class="progress-track amber-track"><span style="width:85.04%"></span></div></article>
+          <article><span class="summary-label">MODEL PARAMETERS</span><strong>6.96M</strong><p>DenseNet121 reported parameters</p><div class="progress-track dark-track"><span style="width:55%"></span></div></article>
+        </div>
+
+        <div class="section-heading results-heading"><span class="eyebrow dark-eyebrow">MODEL COMPARISON</span><h2>Five architectures, <em>one evaluation setup.</em></h2><p class="heading-copy">Accuracy values reproduced from the thesis comparison table.</p></div>
+        <div class="chart-panel">
+          <div class="chart-title-row"><div><h3>Classification accuracy</h3><p>PlantVillage test set · percent</p></div><span class="chart-badge">Higher is better</span></div>
+          <div class="bar-chart" role="img" aria-label="Model accuracy: VGG16 99.38 percent, AlexNet 99.68 percent, ResNet50 99.71 percent, EfficientNet-B0 99.75 percent, DenseNet121 99.79 percent">
+            <div class="bar-row"><span class="bar-label">VGG16</span><div class="bar-rail"><div class="bar-fill" style="width:99.38%"></div></div><strong>99.38%</strong></div>
+            <div class="bar-row"><span class="bar-label">AlexNet</span><div class="bar-rail"><div class="bar-fill" style="width:99.68%"></div></div><strong>99.68%</strong></div>
+            <div class="bar-row"><span class="bar-label">ResNet50</span><div class="bar-rail"><div class="bar-fill" style="width:99.71%"></div></div><strong>99.71%</strong></div>
+            <div class="bar-row"><span class="bar-label">EfficientNet-B0</span><div class="bar-rail"><div class="bar-fill" style="width:99.75%"></div></div><strong>99.75%</strong></div>
+            <div class="bar-row best"><span class="bar-label">DenseNet121 <small>PROPOSED</small></span><div class="bar-rail"><div class="bar-fill" style="width:99.79%"></div></div><strong>99.79%</strong></div>
+          </div>
+          <p class="chart-note">Note: bars are drawn against a 0–100% scale; the small numerical differences are easier to compare in the table below.</p>
+        </div>
+
+        <div class="table-panel">
+          <div class="table-heading"><div><h3>Detailed performance comparison</h3><p>Reported values from thesis Table 5.1</p></div><button class="button button-small button-quiet" id="downloadCsv">Download CSV ↓</button></div>
+          <div class="table-scroll"><table id="modelTable"><thead><tr><th>Model</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1-score</th><th>Parameters</th><th>Train (min)</th><th>Inference (ms/image)</th></tr></thead><tbody>
+            <tr><td>VGG16</td><td>99.38%</td><td>0.9930</td><td>0.9936</td><td>0.9936</td><td>134,301,514</td><td>19.61</td><td>1.14</td></tr>
+            <tr><td>AlexNet</td><td>99.68%</td><td>0.9967</td><td>0.9967</td><td>0.9967</td><td>57,044,810</td><td>246.46</td><td>12.84</td></tr>
+            <tr><td>ResNet50</td><td>99.71%</td><td>0.9970</td><td>0.9960</td><td>0.9965</td><td>23,528,522</td><td>7.11</td><td>0.56</td></tr>
+            <tr><td>EfficientNet-B0</td><td>99.75%</td><td>0.9975</td><td>0.9975</td><td>0.9975</td><td>4,020,358</td><td>6.48</td><td>0.64</td></tr>
+            <tr class="highlight-row"><td>DenseNet121 <span class="table-tag">Proposed</span></td><td><strong>99.79%</strong></td><td>0.9981</td><td>0.9982</td><td>0.9981</td><td>6,964,106</td><td>7.24</td><td>0.70</td></tr>
+          </tbody></table></div>
+        </div>
+
+        <div class="section-heading smaller-heading"><span class="eyebrow dark-eyebrow">GENERALIZATION</span><h2>Controlled images vs <em>field images.</em></h2><p class="heading-copy">Cross-dataset testing reveals a meaningful performance drop under domain shift.</p></div>
+        <div class="dataset-compare">
+          <article class="dataset-card">
+            <div class="dataset-top"><span class="dataset-icon">▦</span><span class="dataset-type">TRAIN + TEST</span></div><h3>PlantVillage</h3><strong class="dataset-score">99.79<small>%</small></strong><div class="progress-track"><span style="width:99.79%"></span></div><p>Curated images captured in controlled conditions, with relatively uniform backgrounds and lighting.</p><div class="dataset-foot">Precision 0.9981 · Recall 0.9982 · F1 0.9981</div>
+          </article>
+          <div class="compare-arrow"><span>→</span><small>Domain shift</small></div>
+          <article class="dataset-card field-card">
+            <div class="dataset-top"><span class="dataset-icon">⌁</span><span class="dataset-type">EXTERNAL TEST</span></div><h3>PlantDoc</h3><strong class="dataset-score">85.04<small>%</small></strong><div class="progress-track amber-track"><span style="width:85.04%"></span></div><p>Field-oriented images with more varied lighting, complex backgrounds, occlusion, and camera angles.</p><div class="dataset-foot">Precision 0.8996 · Recall 0.8504 · F1 0.8578</div>
+          </article>
+        </div>
+        <div class="analysis-grid">
+          <article class="analysis-card"><span class="analysis-symbol">↗</span><h3>Strong controlled-set performance</h3><p>DenseNet121 achieved the highest reported PlantVillage test accuracy among the five compared architectures.</p></article>
+          <article class="analysis-card"><span class="analysis-symbol">⌁</span><h3>Domain shift remains challenging</h3><p>The drop from 99.79% to 85.04% indicates that field images remain harder to classify reliably.</p></article>
+          <article class="analysis-card"><span class="analysis-symbol">✳</span><h3>Interpretability adds context</h3><p>Grad-CAM provides a visual way to inspect image regions that influence the model prediction, but it does not guarantee correctness.</p></article>
+        </div>
+        <div class="notice"><span>!</span><p><strong>Interpret results carefully:</strong> training time and inference time depend on the reported experimental environment. Accuracy on a curated dataset should not be presented as equivalent to field-level diagnostic reliability.</p></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="page" id="about" aria-labelledby="about-title">
+      <div class="page-hero compact-hero">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> ABOUT THE STUDY</div>
+        <h1 id="about-title">Research with <em>purpose.</em></h1>
+        <p>This thesis explores an accurate, computationally practical, and interpretable approach to tomato leaf disease classification.</p>
+      </div>
+      <div class="section-wrap">
+        <div class="about-layout">
+          <div class="about-main">
+            <span class="eyebrow dark-eyebrow">PROJECT OVERVIEW</span>
+            <h2>Making deep learning <em>more understandable.</em></h2>
+            <p class="large-copy">Tomato plants are affected by fungal, bacterial, and viral diseases that can reduce crop quality and yield. This research investigates transfer learning for classifying tomato leaf images while adding visual explanations to help people inspect model behavior.</p>
+            <p>The study compares VGG16, AlexNet, ResNet50, EfficientNet-B0, and DenseNet121 under the reported experimental setup. DenseNet121 is selected as the proposed model based on its overall classification results, then evaluated on an independent PlantDoc dataset and examined with Grad-CAM.</p>
+            <div class="objectives-box"><h3>Research objectives</h3><ol><li>Compare five pretrained CNN architectures across ten tomato leaf categories.</li><li>Balance classification performance with model size and inference cost.</li><li>Use preprocessing and augmentation to support generalization.</li><li>Evaluate cross-dataset generalization from PlantVillage to PlantDoc.</li><li>Use Grad-CAM to visualize image regions influencing predictions.</li></ol></div>
+          </div>
+          <aside class="researcher-card">
+            <div class="researcher-avatar">MS</div><span class="eyebrow">RESEARCHER</span><h3>Md. Abdul Momin Sheikh</h3><p>Department of Computer Science and Engineering</p><div class="profile-line"></div><span class="eyebrow">SUPERVISOR</span><h3>Dr. Md. Abdur Rahim</h3><p>Professor, Department of Computer Science and Engineering</p><div class="profile-line"></div><span class="eyebrow">INSTITUTION</span><h3>Pabna University of Science and Technology</h3><p>Pabna-6600, Bangladesh</p><div class="profile-line"></div><span class="eyebrow">SUBMISSION</span><p>Project/Thesis · CSE 4100 and CSE 4200<br>August 2026</p></aside>
+        </div>
+        <div class="section-heading smaller-heading"><span class="eyebrow dark-eyebrow">KEY CONTRIBUTIONS</span><h2>What this research <em>adds.</em></h2></div>
+        <div class="contribution-grid">
+          <article><span>01</span><h3>Comparative evaluation</h3><p>Five pretrained architectures are compared using shared experimental conditions.</p></article>
+          <article><span>02</span><h3>Cross-dataset validation</h3><p>PlantDoc evaluation examines generalization beyond the controlled PlantVillage dataset.</p></article>
+          <article><span>03</span><h3>Explainable predictions</h3><p>Grad-CAM heatmaps provide qualitative visual evidence about influential regions.</p></article>
+        </div>
+        <div class="about-footer-card"><div><span class="eyebrow">NEXT STEPS</span><h2>From research to <em>future applications.</em></h2><p>The thesis identifies mobile applications and embedded edge devices as potential directions for future work.</p></div><div class="future-icon">↗</div></div>
+        <p class="disclaimer">This website is a research presentation. It is not a validated agricultural diagnostic service and does not provide treatment recommendations.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="#home"><span class="brand-mark">✳</span><span><strong>TomatoVision</strong><small>Research Portfolio</small></span></a>
+    <p>Explainable deep learning for tomato leaf disease classification.</p>
+    <span class="footer-copy">© 2026 · Academic research presentation</span>
+  </footer>
+  <script src="assets/script.js"></script>
+</body>
+</html>
